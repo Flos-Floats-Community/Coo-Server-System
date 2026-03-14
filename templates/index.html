@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coo聊天软件 - 测试端</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Coo聊天软件</h1>
+            <nav>
+                <ul>
+                    <li><a href="#login" class="nav-link" data-target="login-section">登录</a></li>
+                    <li><a href="#register" class="nav-link" data-target="register-section">注册</a></li>
+                    <li><a href="#verify" class="nav-link" data-target="verify-section">验证</a></li>
+                    <li><a href="#chat" class="nav-link" data-target="chat-section">聊天</a></li>
+                    <li><a href="#online" class="nav-link" data-target="online-section">联机</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- 登录部分 -->
+            <section id="login-section" class="section">
+                <h2>登录</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-username">用户名</label>
+                        <input type="text" id="login-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">密码</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <button type="submit">登录</button>
+                    <div id="login-message" class="message"></div>
+                </form>
+            </section>
+
+            <!-- 注册部分 -->
+            <section id="register-section" class="section">
+                <h2>注册</h2>
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="register-username">用户名</label>
+                        <input type="text" id="register-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">邮箱</label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">密码</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    <button type="submit">注册</button>
+                    <div id="register-message" class="message"></div>
+                </form>
+            </section>
+
+            <!-- 验证部分 -->
+            <section id="verify-section" class="section">
+                <h2>邮箱验证</h2>
+                <form id="verify-form">
+                    <div class="form-group">
+                        <label for="verify-cid">用户ID</label>
+                        <input type="text" id="verify-cid" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="verify-code">验证码</label>
+                        <input type="text" id="verify-code" required>
+                    </div>
+                    <button type="submit">验证</button>
+                    <button type="button" id="resend-code">重新发送验证码</button>
+                    <div id="verify-message" class="message"></div>
+                </form>
+            </section>
+
+            <!-- 聊天部分 -->
+            <section id="chat-section" class="section">
+                <h2>聊天</h2>
+                <div class="chat-container">
+                    <div class="chat-sidebar">
+                        <h3>用户列表</h3>
+                        <ul id="user-list"></ul>
+                        <h3>群组列表</h3>
+                        <ul id="group-list"></ul>
+                        <button id="create-group">创建群组</button>
+                    </div>
+                    <div class="chat-main">
+                        <div class="chat-header">
+                            <h3 id="chat-title">选择聊天对象</h3>
+                        </div>
+                        <div class="chat-messages" id="chat-messages"></div>
+                        <div class="chat-input">
+                            <input type="text" id="message-input" placeholder="输入消息...">
+                            <button id="send-message">发送</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 联机部分 -->
+            <section id="online-section" class="section">
+                <h2>联机</h2>
+                <form id="online-form">
+                    <div class="form-group">
+                        <label for="frp-id">FRP ID</label>
+                        <input type="text" id="frp-id" required>
+                    </div>
+                    <button type="submit">设置在线状态</button>
+                    <div id="online-message" class="message"></div>
+                </form>
+                <h3>在线用户</h3>
+                <ul id="online-users"></ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Coo聊天软件</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
